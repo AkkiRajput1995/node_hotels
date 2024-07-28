@@ -3,6 +3,9 @@ const app=express();
 const db=require('./db.js');
 const bodyParser=require('body-parser');
 
+require('dotenv').config();
+const PORT=process.env.PORT;
+
 app.use(bodyParser.json());// req.body
 
 const Person=require('./person.js');
@@ -116,7 +119,7 @@ console.log(err);
 res.status(500).json({error: 'Internal Server Error'})}
 })
 
-app.listen(3000, ()=>{
+app.listen(PORT, ()=>{
     console.log('listening port on 3000')
 })
 
